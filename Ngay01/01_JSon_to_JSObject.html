@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi từ chuỗi JSon sang biến của Javascript</title>
+</head>
+<body>
+    <h3>Chuyển đổi từ chuỗi JSon sang biến của Javascript</h3>
+    <script>
+        //khai báo chuỗi JSon
+        var strJSon = '{"RollNo":"SV01", "Name":"Quản Dũng","Age":30}';
+        //Chuyển đổi từ chuỗi định dạng JSon sang biến của JS để truy cập
+        var Obj = JSON.parse(strJSon);
+        document.write("<p>Mã SV:" + Obj.RollNo + "</p>");
+        document.write("<p>Họ tên:" + Obj.Name + "</p>");
+        document.write("<p>TUổi:" + Obj.Age + "</p>");
+    </script>
+</body>
+</html>

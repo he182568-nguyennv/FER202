@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi từ chuỗi JSon sang biến của Javascript</title>
+</head>
+<body>
+    <h3>Chuyển đổi từ chuỗi JSon sang biến của Javascript</h3>
+    <script>
+        //khai báo chuỗi JSon dạng mảng các đối tượng
+        var strJSon = '[{"RollNo":"SV01", "Name":"Quản Dũng","Age":30},\
+                        {"RollNo":"SV02", "Name":"Quang Huy","Age":20},\
+                        {"RollNo":"SV03", "Name":"Tiến Đạt","Age":21}]';
+        //Chuyển đổi từ chuỗi định dạng JSon sang biến mảng của JS để truy cập
+        var Arr = JSON.parse(strJSon);
+        for(i=0; i<Arr.length; i++) {
+            var Obj = Arr[i]; 
+            document.write("<p>RollNo:" + Obj.RollNo + "</p>");
+            document.write("<p>Name:" + Obj.Name + "</p>");
+            document.write("<p>Age:" + Obj.Age + "</p>");
+            document.write("<hr>");
+        }
+    </script>
+</body>
+</html>

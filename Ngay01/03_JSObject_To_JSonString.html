@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi từ biến trong JavaScript thành chuỗi JSon</title>
+</head>
+<body>
+    <h3>Chuyển đổi từ biến trong JavaScript thành chuỗi JSon</h3>
+    <script>
+        var arr = [{RollNo:"SV01", Name:"Quản Dũng", Age:20},
+                    {RollNo:"SV02", Name:"Tiến Đạt", Age:21}];
+        //chuyển mảng đối tượng sang chuỗi ký tự dạng JSON
+        var str = JSON.stringify(arr);
+        document.write(str);
+    </script>
+</body>
+</html>

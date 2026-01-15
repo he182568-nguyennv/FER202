@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng AJAX bằng Javascript thuần</title>
+    <script>
+        function AJAX_GetData()
+        {
+            //tạo đối tượng AJAX để request tới 1 trang (Server Page) trên máy chủ 
+            const xmlhttp = new XMLHttpRequest();
+            //gửi request tới địa chỉ 1 trang  trên máy chủ trả về dữ liệu 
+            //Khi thành công sẽ chạy function được gán cho .onload
+            xmlhttp.open("GET", "Data/Student.json");
+            xmlhttp.send();
+            //xmlhttp.onload = function(){} được gọi khi gửi yêu cầu thành công để nhận kết quả
+            xmlhttp.onload = function() {
+                //responseText là nội dung trả về từ strURL
+                //hiển thị chuỗi JSon vào thẻ content
+                document.getElementById("content").innerHTML = this.responseText;
+                //hiển thị dạng danh sách các sinh viên bằng vòng lặp
+                var StudentList = JSON.parse(this.responseText);
+                ShowStudents(StudentList)
+            }
+        }
+        //hàm hiển thị mảng các sinh viên lên màn hình thành từng dòng
+        function ShowStudents(Arr)
+        {
+            str = "";
+            for(i=0; i<Arr.length; i++) {
+                var Obj = Arr[i]; 
+                str += "<p>RollNo:" + Obj.RollNo + "</p>";
+                str += "<p>Name:" + Obj.Name + "</p>";
+                str +="<p>Age:" + Obj.Age + "</p>";
+                str +="<hr>";
+            }
+            document.getElementById("showlist").innerHTML=str;
+        }
+    </script>
+</head>
+<body>
+    <h3>Kết nối và đọc dữ liệu JSON từ máy chủ bằng AJAX</h3>
+    <button onclick="AJAX_GetData();">Load Data</button>
+    <div id="content">NỘI DUNG JSON từ Server</div>
+    <div id="showlist"></div>
+    
+</body>
+</html>
