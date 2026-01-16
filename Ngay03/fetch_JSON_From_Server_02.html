@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng AJAX bằng Javascript ES6</title>
+    <script>
+        function AJAX_GetData()
+        {
+            //fetch("Data/Student.json")
+           //     .then(function(dataObj) {return dataObj.text()})
+           //     .then(function(jsonData) { ShowStudents(jsonData)});
+           fetch("Data/Student.json")
+                .then(dataObj => dataObj.text())
+                .then(jsonData => ShowStudents(jsonData));
+        }
+        //hàm hiển thị mảng các sinh viên lên màn hình thành từng dòng
+        function ShowStudents(jsonData)
+        {
+            Arr = JSON.parse(jsonData);
+            str = "";
+            for(i=0; i<Arr.length; i++) {
+                var Obj = Arr[i]; 
+                str += "<p>RollNo:" + Obj.RollNo + "</p>";
+                str += "<p>Name:" + Obj.Name + "</p>";
+                str +="<p>Age:" + Obj.Age + "</p>";
+                str +="<hr>";
+            }
+            document.getElementById("showlist").innerHTML=str;
+        }
+    </script>
+</head>
+<body>
+    <h3>Kết nối và đọc dữ liệu JSON từ máy chủ bằng Javascript ES6</h3>
+    <button onclick="AJAX_GetData();">Load Data</button>
+    <div id="content">NỘI DUNG JSON từ Server</div>
+    <div id="showlist"></div>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructing Object</title>
+</head>
+<body>
+    <script>
+        const student = {Code:"SV01", Name: "Nguyễn Văn A", Age:20}
+        //lấy thành phần Object thì không quan tâm thứ tự, các biến phải cùng tên với Property
+        const {Age,Name} = student;
+        document.write("Họ tên: " + Name + ", Tuổi:" + Age);
+        //đối tượng có thuộc tính là một đối tượng cấp 2
+        const person = {Fullname:"Nguyễn Thị Hoa", Birthday : {day:8, month:3, year:2005} };
+        //let Fullname = person.Name;
+        //let day = person.Birthday.day;
+        //let month = person.Birthday.month;
+        let {Fullname, Birthday:{day,month}} = person;
+        document.write("<br>Họ tên: " + Fullname);
+        let strDay = `Ngày sinh: ${day} / ${month}`;
+        document.write("<br>" + strDay);
+        
+        const student2 = {Code:"SV02", Name: "Nguyễn Văn B", Age:20}
+        //ví dụ  Object là tham số của hàm (không sử dụng destructing)
+        function Hello1(param)
+        {
+            document.write("<br>Hello1, Họ tên: " + param.Name + ", Tuổi:" + param.Age);
+        }
+        Hello1(student2);
+
+        //sử dụng destructing với tham số của hàm là Object
+        function Hello2({Name,Age})
+        {
+            document.write("<br>Hello2, Họ tên: " +Name + ", Tuổi:" + Age);
+        }
+        Hello2(student2);
+    </script>
+</body>
+</html>

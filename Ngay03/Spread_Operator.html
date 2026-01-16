@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<body>
+    <script>
+        //The ... operator spreads an array or iterable into individual elements.
+        //có thể sử dụng toán tử ... để gộp mảng
+        const numbersOne = [1, 2, 3];
+        const numbersTwo = [4, 5, 6];
+        //tạo mảng mới từ 2 mảng trên
+        const numbersCombined = [...numbersOne, ...numbersTwo];
+        document.write(numbersCombined);
+        //kết hợp destructing với spread operator
+        const numbers = [1, 2, 3, 4, 5, 6];
+        //lấy phần tử 0,1 sang biến one,two, phần còn lại đưa vào mảng rest
+        const [one, two, ...rest] = numbers;
+        document.write("<br>one:" +one);
+        document.write("<br>two:" +two);
+        document.write("<br>rest:" +rest);
+        //spread operator: gộp 2 Object
+        const car = {
+            brand: 'Ford',
+            model: 'Mustang',
+            color: 'red'
+        }
+
+        const car_more = {
+            type: 'car',
+            year: 2021, 
+            color: 'yellow'
+        }
+        //mycar sẽ có 5 properties: brand, model, type, year, color 
+        //(color trùng nhau sẽ lấy giả trị của object sau cùng)
+        const mycar = {...car, ...car_more};
+        document.write("<br>mycar, type:", mycar.brand,", model:" + mycar.model
+                ,", type:" + mycar.type,", year:" + mycar.year,", color:" + mycar.color);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructing Arrray</title>
+    <script>
+        function dateInfo(dat) {
+            const d = dat.getDate();
+            const m = dat.getMonth() + 1;//getMonth(): 0-thang1, 1-thang2,...,11-thang12
+            const y = dat.getFullYear();
+            result = [d, m, y]; 
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <script>
+        const Students = ["Hoa", "Tuấn", "Dũng"];
+        //gán từng phần tử của mảng vào các biến theo thứ tự
+        const [stu1, ,stu3] = Students;
+        document.write("<br>Studen1: " + stu1);
+        document.write("<br>Studen3: " + stu3);
+        //lấy các thành phần của đối tượng Date(), hàm dateInfo trả vể mảng [d,m,y]
+        //lưu kết quả từ mảng trả về vào 3 biến day, month, year
+        const [day,month,year] = dateInfo(new Date());
+        document.write("<br>Today:" + day + "/" + month + "/" + year);
+    </script>
+</body>
+</html>
