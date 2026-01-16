@@ -24,4 +24,6 @@ const car2 = {
 
 const car_model = { ...car, ...car2 };
 console.log(car_model);
+
 // Rest parameter
+

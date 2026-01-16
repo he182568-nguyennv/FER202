@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sử dụng AJAX bằng Javascript ES6</title>
     <script>
-        async function AJAX_GetData()
-        {
-            let objData = await fetch("Data/Student.json");
-            let jsonData = await objData.text();
-            let StudentList = JSON.parse(jsonData);
-            ShowStudents(StudentList);
+      async function AJAX_GetData() {
+        let objData = await fetch("Data/Student.json");
+        let jsonData = await objData.text();
+        let StudentList = JSON.parse(jsonData);
+        ShowStudents(StudentList);
+      }
+      //hàm hiển thị mảng các sinh viên lên màn hình thành từng dòng
+      function ShowStudents(Arr) {
+        str = "";
+        for (i = 0; i < Arr.length; i++) {
+          var Obj = Arr[i];
+          str += "<p>RollNo:" + Obj.RollNo + "</p>";
+          str += "<p>Name:" + Obj.Name + "</p>";
+          str += "<p>Age:" + Obj.Age + "</p>";
+          str += "<hr>";
         }
-        //hàm hiển thị mảng các sinh viên lên màn hình thành từng dòng
-        function ShowStudents(Arr)
-        {
-            str = "";
-            for(i=0; i<Arr.length; i++) {
-                var Obj = Arr[i]; 
-                str += "<p>RollNo:" + Obj.RollNo + "</p>";
-                str += "<p>Name:" + Obj.Name + "</p>";
-                str +="<p>Age:" + Obj.Age + "</p>";
-                str +="<hr>";
-            }
-            document.getElementById("showlist").innerHTML=str;
-        }
+        document.getElementById("showlist").innerHTML = str;
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <h3>Kết nối và đọc dữ liệu JSON từ máy chủ bằng Javascript ES6</h3>
     <button onclick="AJAX_GetData();">Load Data</button>
     <div id="content">NỘI DUNG JSON từ Server</div>
     <div id="showlist"></div>
-    
-</body>
+  </body>
 </html>
